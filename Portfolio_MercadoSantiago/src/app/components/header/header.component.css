@@ -1,5 +1,9 @@
 div{
-    background-color: #a1b5cb;
+    background-color: #3c6189;
+}
+.col{
+    padding-right: 0%;
+    padding-left: 0%;
 }
 
 app-social{
