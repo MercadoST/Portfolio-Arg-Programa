@@ -15,6 +15,9 @@ import { HardSoftComponent } from './components/hard-soft/hard-soft.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/header/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule} from '@angular/common/http';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -31,11 +34,14 @@ import { LoginComponent } from './components/header/login/login.component';
     ProyectosComponent,
     FooterComponent,
     LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgCircleProgressModule.forRoot({})
+    NgCircleProgressModule.forRoot({}),
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
