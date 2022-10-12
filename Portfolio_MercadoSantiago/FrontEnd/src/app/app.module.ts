@@ -18,6 +18,7 @@ import { LoginComponent } from './components/header/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
+import { interceptorProvider } from './service/interceptor-service';
 
 
 @NgModule({
@@ -43,7 +44,9 @@ import { HomeComponent } from './components/home/home.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    interceptorProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

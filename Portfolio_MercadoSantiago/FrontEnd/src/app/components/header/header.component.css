@@ -9,9 +9,10 @@ div{
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
+    margin-right: 1%;
 }
 
-app-login{
+#boton{
     display: flex;
     flex-wrap: wrap;
     align-content: center;
