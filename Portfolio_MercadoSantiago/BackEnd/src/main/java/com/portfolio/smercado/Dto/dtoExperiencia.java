@@ -6,16 +6,16 @@ import javax.validation.constraints.NotBlank;
  *
  * @author santi
  */
-public class dtoExperiencia {
+public class DtoExperiencia {
     @NotBlank
     private String nombreE;
     @NotBlank
     private String descripcionE;
 
-    public dtoExperiencia() {
+    public DtoExperiencia() {
     }
 
-    public dtoExperiencia(String nombreE, String descripcionE) {
+    public DtoExperiencia(String nombreE, String descripcionE) {
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
     }

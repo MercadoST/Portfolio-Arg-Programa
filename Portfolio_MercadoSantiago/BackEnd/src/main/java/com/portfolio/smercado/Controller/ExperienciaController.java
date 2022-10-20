@@ -1,6 +1,6 @@
 package com.portfolio.smercado.Controller;
 
-import com.portfolio.smercado.Dto.dtoExperiencia;
+import com.portfolio.smercado.Dto.DtoExperiencia;
 import com.portfolio.smercado.Entity.Experiencia;
 import com.portfolio.smercado.Security.Controller.Mensaje;
 import com.portfolio.smercado.Service.ExperienciaService;
@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("explab")
+//@CrossOrigin(origins = "http://localhost:4200")
 @CrossOrigin(origins = "https://portfolio-santiagom.web.app")
 public class ExperienciaController {
     @Autowired
@@ -36,7 +37,7 @@ public class ExperienciaController {
     }
     
     @PostMapping("/create")
-    public ResponseEntity<?> create(@RequestBody dtoExperiencia dtoexp){
+    public ResponseEntity<?> create(@RequestBody DtoExperiencia dtoexp){
         if(StringUtils.isBlank(dtoexp.getNombreE()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         if(experienciaService.existsByNombreE(dtoexp.getNombreE()))
@@ -49,7 +50,7 @@ public class ExperienciaController {
     }
     
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoExperiencia dtoexp){
+    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody DtoExperiencia dtoexp){
         if(!experienciaService.existsById(id))
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.NOT_FOUND);
         if(experienciaService.existsByNombreE(dtoexp.getNombreE()) && experienciaService.getByNombreE(dtoexp.getNombreE()).get().getId() != id)

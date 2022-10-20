@@ -34,7 +34,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin /**(origins = "https://portfolio-santiagom.web.app")*/
+@CrossOrigin (origins = "https://portfolio-santiagom.web.app")
 public class AuthController {
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -55,10 +55,10 @@ public class AuthController {
             return new ResponseEntity(new Mensaje("Campos mal puestos o email invalido"),
                     HttpStatus.BAD_REQUEST);
         
-        if(usuarioService.existByNombreUsuario(nuevoUsuario.getNombreUsuario()))
+        if(usuarioService.existsByNombreUsuario(nuevoUsuario.getNombreUsuario()))
              return new ResponseEntity(new Mensaje("Ese nombre de Usuario ya existe"), HttpStatus.BAD_REQUEST);
         
-        if(usuarioService.existByEmail(nuevoUsuario.getEmail()))
+        if(usuarioService.existsByEmail(nuevoUsuario.getEmail()))
              return new ResponseEntity(new Mensaje("Ese email ya existe"), HttpStatus.BAD_REQUEST);
         
         Usuario usuario = new Usuario(nuevoUsuario.getNombre(), nuevoUsuario.getNombreUsuario(), 
